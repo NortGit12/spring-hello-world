@@ -1,0 +1,21 @@
+Steps of work in this project
+=============================
+1) Add the dependency to Spring Context in the POM
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>3.2.3.RELEASE</version>
+    </dependency>
+2) Create the interfaces (MessageProvider, MessageRenderer) and their implementations (HelloWorldMessageProvider, StandardOutMessageRenderer)
+3) Create the Spring config file
+	a - In src/main, create a folder (e.g. resources)
+	b - Create a folder in the new resources folder (e.g. spring)
+	c - Create the spring config file (e.g. coolest-config-file-ever.xml)
+		1 - Create the beans tags
+		2 - Create bean tags for each interface that Spring will manage as a bean (e.g. MessageProvider, MessageRenderer)
+		3 - Make the renderer bean depend on the provider bean (e.g. "")
+		4 - [My extra credit] Give the message variable in the provider a default value
+4) Create the main method in the class to run (HelloWorldSpringDI.java)
+	a - Create the application context based on the xml config file (ApplicationContext ctx = ClassPathXmlApplicationContext("spring/coolest-config-file-ever.xml");)
+	b - Get an instance of the MessageRenderer bean (e.g. MessageRenderer mr = ctx.getBean("niftyRenderer", MessageRenderer.class);
+	c - Use the bean (e.g. mr.render();)
