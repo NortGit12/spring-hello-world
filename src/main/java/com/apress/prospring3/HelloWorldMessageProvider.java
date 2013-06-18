@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service("niftyProvider")
 public class HelloWorldMessageProvider implements MessageProvider {
 
-    private String message = "Hello World!";
+    private String message = "Hello World! (default message value)";
 
     public String getMessage() {
         return message;

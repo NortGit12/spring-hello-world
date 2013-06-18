@@ -7,7 +7,9 @@ public class HelloWorldSpringDI {
     public static void main(String[] args) {
         // Initialize the Spring application context
         GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
-        ctx.load("classpath:spring/coolest-app-context-xml.xml, classpath:spring/coolest-app-context-annotation.xml");
+//        ctx.load("classpath:spring/coolest-app-context-xml.xml, spring/coolest-app-context-annotation.xml");
+//        ctx.load("classpath:spring/coolest-app-context-xml.xml");
+        ctx.load("classpath:spring/coolest-app-context-annotation.xml");
         ctx.refresh();
 
         // Get an instance of the bean and use it

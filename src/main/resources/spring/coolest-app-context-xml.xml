@@ -13,8 +13,14 @@
             http://www.springframework.org./schema/util
             http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-<!--    <bean id="niftyProvider" class="com.apress.prospring3.HelloWorldMessageProvider">
-        <property name="message" value="Greetings earthling." />
-    </bean>-->
+    <bean id="niftyProvider" class="com.apress.prospring3.HelloWorldMessageProvider">
+        <property name="message" value="Greetings earthling. (xml-overridden value)" />
+    </bean>
+
+    <bean id="niftyRenderer" class="com.apress.prospring3.StandardOutMessageRenderer">
+        <property name="messageProvider">
+            <ref bean="niftyProvider" />
+        </property>
+    </bean>
 
 </beans>
