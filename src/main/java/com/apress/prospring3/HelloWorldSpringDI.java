@@ -1,17 +1,18 @@
 package com.apress.prospring3;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class HelloWorldSpringDI {
 
     public static void main(String[] args) {
         // Initialize the Spring application context
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring/coolest-config-file-ever.xml");
+        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
+        ctx.load("classpath:spring/coolest-app-context-xml.xml, classpath:spring/coolest-app-context-annotation.xml");
+        ctx.refresh();
 
         // Get an instance of the bean and use it
-        MessageRenderer mr = ctx.getBean("niftyRenderer", MessageRenderer.class);
-        mr.render();
+        MessageProvider messageProvider = ctx.getBean("niftyProvider", MessageProvider.class);
+        System.out.println(messageProvider.getMessage());
     }
 
 }

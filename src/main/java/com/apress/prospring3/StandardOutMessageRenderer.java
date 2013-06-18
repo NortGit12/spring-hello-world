@@ -1,5 +1,8 @@
 package com.apress.prospring3;
 
+import org.springframework.stereotype.Service;
+
+@Service("niftyRenderer")
 public class StandardOutMessageRenderer implements MessageRenderer {
 
     private MessageProvider messageProvider = null;
