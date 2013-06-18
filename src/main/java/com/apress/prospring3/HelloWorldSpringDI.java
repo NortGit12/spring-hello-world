@@ -15,6 +15,9 @@ public class HelloWorldSpringDI {
         // Get an instance of the bean and use it
         MessageProvider messageProvider = ctx.getBean("niftyProvider", MessageProvider.class);
         System.out.println(messageProvider.getMessage());
+
+        MessageProvider messageProvider2 = ctx.getBean("configurableProvider", MessageProvider.class);
+        System.out.println(messageProvider2.getMessage());
     }
 
 }

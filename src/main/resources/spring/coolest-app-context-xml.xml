@@ -17,10 +17,21 @@
         <property name="message" value="Greetings earthling. (xml-overridden value)" />
     </bean>
 
-    <bean id="niftyRenderer" class="com.apress.prospring3.StandardOutMessageRenderer">
+    <bean id="configurableProvider" class="com.apress.prospring3.ConfigurableMessageProvider">
+        <constructor-arg>
+            <value>This is a configurable message. (xml-overridden value)</value>
+        </constructor-arg>
+    </bean>
+    <!-- OR -->
+<!--    <bean id="configurableProvider" class="com.apress.prospring3.ConfigurableMessageProvider"
+          c:message="This is a configurable message. (xml-overridden value)"/>-->
+
+<!--    <bean id="niftyRenderer" class="com.apress.prospring3.StandardOutMessageRenderer">
         <property name="messageProvider">
             <ref bean="niftyProvider" />
         </property>
-    </bean>
+    </bean>-->
+    <!-- OR -->
+    <bean id="niftyRenderer" class="com.apress.prospring3.StandardOutMessageRenderer" p:messageProvider-ref="niftyProvider"/>
 
 </beans>
